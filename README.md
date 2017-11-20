@@ -9,5 +9,5 @@ This program suggets you to buy numbers , flavors and brand of Kohuke within you
 <h4>Do not worry! This program automatically choose Kohukes as you enter your budget and its duration!</h4>         
 
 <h2>You do not know about Kohuke? Let's check this great sweets!</h2>         
-<h3>Overview of Kohuke</3>
+<p>Overview of Kohuke</p>
 <a href="https://estoniancuisine.com/2017/01/13/kohuke-chocolate-glazed-quark-snack/" target="_blank">What is Kohuke?</a>
