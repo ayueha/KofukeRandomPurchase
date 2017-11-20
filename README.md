@@ -5,7 +5,7 @@
           <li>I have enough money but always hesite buying Kohukes as thare are many flavors and brands.</li>
           <li>I try to buy other brand, but I have no idea....</li>
          </ul>
-         
+</pre>         
          
        <h4>Do not worry! This program automatically choose Kohukes as you enter your budget and its duration!</h4>
-</pre>
+
