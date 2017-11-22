@@ -35,7 +35,7 @@ public class ListKohuke {
         for (int i = 1; i <=budgetPeriod; i++) {
             //budget loop
             for (double k = 0.0; k < avarageMoney; ) {
-                Integer productNo = randumNumbers.nextInt(13);
+                int productNo = randumNumbers.nextInt(13);
                 purchaseList.add(kohukeList.get(productNo));
                 k = k + kohukeList.get(productNo).price;;
 

@@ -23,9 +23,11 @@ public class RandumKohuke {
             if (validationFlg==true){
                 break;
             }else {
+                //promote user to put other figure of euro
                 System.out.println("Please reenter your Budget in Euro");
                 budgetEuro = TextIO.getDouble();
 
+                //promote user to put other figure of days
                 System.out.println("Please reenter period of the budget");
                 budgetPeriod = TextIO.getInt();
             }
@@ -36,14 +38,15 @@ public class RandumKohuke {
         System.out.println("Create your plan [y or n] ?");
         String answer = TextIO.getlnString();
 
-
         //Initializing validation flg again and validation the answer
         validationFlg=false;
         while(!validationFlg){
+            //confirm user entry
             validationFlg=InputValidation.validationExecution(answer);
             if (validationFlg==true){
                 break;
             }else{
+                //promote user to push other letter
                 System.out.println("Please enter y[Yes] or n[No]");
                 answer=TextIO.getlnString();
             }
@@ -57,7 +60,6 @@ public class RandumKohuke {
             for(KofukeProducts kohuke:ListKohuke.chooseRandomKohuke(budgetEuro,budgetPeriod)){
                 System.out.println("Brand:"+kohuke.brand +"   Flavor: "+ kohuke.flavor +"   Price: "+ kohuke.price);
             }
-
 
         }else{
             //End Calculation
