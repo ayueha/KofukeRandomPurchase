@@ -14,5 +14,9 @@ public class KofukeProducts {
         this.price = price;
     }
 
+    @Override
+    public String toString(){
+        return brand + " : "+ flavor +" : " + price ;
+    }
 
 }

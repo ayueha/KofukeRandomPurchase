@@ -2,54 +2,36 @@ package RandumKohuke;
 import java.util.ArrayList;
 
 public class RandumKohuke {
+    public static double budgetEuro = 0.0;
+    public static int budgetPeriod = 0;
+    public static String answer;
 
     public static void main (String[] args){
         //initialize imformation variable
-        double budgetEuro = 0.0;
-        int budgetPeriod =0;
-        boolean validationFlg= false;
+        InputValidation flg = new InputValidation();
+        boolean  validationFlg=false;
+
 
         //Initial Entry of budget and days
         System.out.println("Welcome to Random Kohuke Purchase System \n\nPlease enter your Budget in Euro");
         budgetEuro = TextIO.getlnDouble();
-
         System.out.println("Please enter days of the budget");
         budgetPeriod = TextIO.getlnInt();
 
-        while(!validationFlg){
-        //days and budget validation
-            validationFlg=InputValidation.validationBudgetDate(budgetEuro, budgetPeriod);
 
-            if (validationFlg==true){
-                break;
-            }else {
-                //promote user to put other figure of euro
-                System.out.println("Please reenter your Budget in Euro");
-                budgetEuro = TextIO.getDouble();
-
-                //promote user to put other figure of days
-                System.out.println("Please reenter period of the budget");
-                budgetPeriod = TextIO.getInt();
-            }
-
+        //validationFlg=false;
+        while(validationFlg==false){
+            validationFlg=flg.checkValidBudget();
         }
-        //confirm information
-        System.out.println( "Your information are ...\n"+"Budget:"+ budgetEuro +" EURO \nPeriod:"+budgetPeriod+" days");
-        System.out.println("Create your plan [y or n] ?");
-        String answer = TextIO.getlnString();
 
-        //Initializing validation flg again and validation the answer
+        //confirm information
+        System.out.println( "Your information are ...\n"+"Budget:"+ budgetEuro +" EURO \nPeriod:"+ budgetPeriod +" days");
+        System.out.println("Create your plan [y or n] ?");
+        answer = TextIO.getlnString();
         validationFlg=false;
-        while(!validationFlg){
-            //confirm user entry
-            validationFlg=InputValidation.validationExecution(answer);
-            if (validationFlg==true){
-                break;
-            }else{
-                //promote user to push other letter
-                System.out.println("Please enter y[Yes] or n[No]");
-                answer=TextIO.getlnString();
-            }
+        //confirm user entry
+        while(validationFlg==false){
+            validationFlg=flg.validationExecution();
         }
 
         if (answer.equals("y")) {
@@ -57,8 +39,8 @@ public class RandumKohuke {
             System.out.println("=====Following list is for your purchasing schedule=====");
             System.out.println(" Budget    :  " + budgetEuro + " EURO   Duration    :  " +budgetPeriod +" days");
             System.out.println("========================================================");
-            for(KofukeProducts kohuke:ListKohuke.chooseRandomKohuke(budgetEuro,budgetPeriod)){
-                System.out.println("Brand:"+kohuke.brand +"   Flavor: "+ kohuke.flavor +"   Price: "+ kohuke.price);
+            for(KofukeProducts kohuke:ListKohuke.chooseRandomKohuke()){
+                System.out.println(kohuke);
             }
 
         }else{
@@ -67,10 +49,5 @@ public class RandumKohuke {
         }
 
     }
-
-
-
-
-
 
 }

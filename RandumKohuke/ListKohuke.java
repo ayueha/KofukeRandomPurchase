@@ -1,16 +1,27 @@
 package RandumKohuke;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Random;
 
 
-public class ListKohuke {
+public class ListKohuke extends RandumKohuke{
 
-    public static ArrayList<KofukeProducts> chooseRandomKohuke(double budgetEuro, Integer budgetPeriod) {
+    public static ArrayList<KofukeProducts> chooseRandomKohuke() {
 
         //Initializing Kohuke List
         ArrayList<KofukeProducts> kohukeList = new ArrayList<>();
+
+        //Initializing purchase list
         ArrayList<KofukeProducts> purchaseList = new ArrayList<>();
+
+        //create random number
+        Random randumNumbers = new Random();
+
+        //Initializing budget per day
+        double avarageMoney = budgetEuro / (double) budgetPeriod;
+
+
         kohukeList.add(0,new KofukeProducts("saaremaa","vanilla",0.39));
         kohukeList.add(1,new KofukeProducts("saaremaa","toffee",0.39));
         kohukeList.add(2,new KofukeProducts("saaremaa","lemon",0.39));
@@ -26,10 +37,6 @@ public class ListKohuke {
         kohukeList.add(12,new KofukeProducts("Farmi","vanilla",0.42));
         kohukeList.add(13,new KofukeProducts("Farmi","strawberry",0.42));
 
-        //Initializing budget per day
-        double avarageMoney = budgetEuro / (double) budgetPeriod;
-        //create random number
-        Random randumNumbers = new Random();
 
         //day loop
         for (int i = 1; i <=budgetPeriod; i++) {
