@@ -1,6 +1,6 @@
 package RandumKohuke;
 
-public class InputValidation extends RandumKohuke{
+public class InputValidation extends RandumKohuke {
     /*
     Check budget and duration.
     if the result of budgetEuro/budgetperiod is under the most expensive kohuke,
@@ -9,10 +9,26 @@ public class InputValidation extends RandumKohuke{
 
     private static int j;
 
+    /*     Check the execution letter */
+    public static boolean validationExecution() {
+        while (showLetter() == false) {
+            System.out.println("Please enter y[Yes] or n[No]");
+            answer = TextIO.getlnString();
+        }
+        return true;
+    }
+
+    private static boolean showLetter() {
+        if (answer.equals("y") | answer.equals("n")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public boolean checkValidBudget() {
 
-        while(showResult()==false){
+        while (showResult() == false) {
             System.out.println("Budget and duration is under the level of purchase");
             System.out.println("Please reenter your Budget in Euro");
             budgetEuro = TextIO.getDouble();
@@ -25,30 +41,11 @@ public class InputValidation extends RandumKohuke{
 
     }
 
-
-    private boolean showResult(){
-        if(budgetEuro/budgetPeriod<0.42){
+    private boolean showResult() {
+        if (budgetEuro / budgetPeriod < 0.42) {
             return false;
-        }else{
-           return true;
-        }
-    }
-
-    /*     Check the execution letter */
-    public static boolean validationExecution(){
-        while(showLetter()==false){
-            System.out.println("Please enter y[Yes] or n[No]");
-            answer=TextIO.getlnString();
-        }
-        return true;
-    }
-
-
-    private static boolean showLetter(){
-        if (answer.equals("y") | answer.equals("n")){
+        } else {
             return true;
-        }else{
-            return false;
         }
     }
 

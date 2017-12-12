@@ -1,7 +1,5 @@
 package RandumKohuke;
 
-import java.util.ArrayList;
-
 public class KofukeProducts {
     String brand;
     String flavor;
@@ -15,8 +13,8 @@ public class KofukeProducts {
     }
 
     @Override
-    public String toString(){
-        return brand + " : "+ flavor +" : " + price ;
+    public String toString() {
+        return brand + " : " + flavor + " : " + price;
     }
 
 }

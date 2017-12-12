@@ -1,15 +1,14 @@
 package RandumKohuke;
-import java.util.ArrayList;
 
 public class RandumKohuke {
     public static double budgetEuro = 0.0;
     public static int budgetPeriod = 0;
     public static String answer;
 
-    public static void main (String[] args){
+    public static void main(String[] args) {
         //initialize imformation variable
         InputValidation flg = new InputValidation();
-        boolean  validationFlg=false;
+        boolean validationFlg = false;
 
 
         //Initial Entry of budget and days
@@ -20,30 +19,30 @@ public class RandumKohuke {
 
 
         //validationFlg=false;
-        while(validationFlg==false){
-            validationFlg=flg.checkValidBudget();
+        while (validationFlg == false) {
+            validationFlg = flg.checkValidBudget();
         }
 
         //confirm information
-        System.out.println( "Your information are ...\n"+"Budget:"+ budgetEuro +" EURO \nPeriod:"+ budgetPeriod +" days");
+        System.out.println("Your information are ...\n" + "Budget:" + budgetEuro + " EURO \nPeriod:" + budgetPeriod + " days");
         System.out.println("Create your plan [y or n] ?");
         answer = TextIO.getlnString();
-        validationFlg=false;
+        validationFlg = false;
         //confirm user entry
-        while(validationFlg==false){
-            validationFlg=flg.validationExecution();
+        while (validationFlg == false) {
+            validationFlg = flg.validationExecution();
         }
 
         if (answer.equals("y")) {
             //Start Calculation
             System.out.println("=====Following list is for your purchasing schedule=====");
-            System.out.println(" Budget    :  " + budgetEuro + " EURO   Duration    :  " +budgetPeriod +" days");
+            System.out.println(" Budget    :  " + budgetEuro + " EURO   Duration    :  " + budgetPeriod + " days");
             System.out.println("========================================================");
-            for(KofukeProducts kohuke:ListKohuke.chooseRandomKohuke()){
+            for (KofukeProducts kohuke : ListKohuke.chooseRandomKohuke()) {
                 System.out.println(kohuke);
             }
 
-        }else{
+        } else {
             //End Calculation
             System.out.println("User ended program as option with No");
         }
